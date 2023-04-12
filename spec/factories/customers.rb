@@ -14,5 +14,20 @@ FactoryBot.define do
         create_list(:invoice, evaluator.invoices_count, customer: customer)
       end
     end
+
+
+    trait :with_successful_transactions do
+      transient do
+        transactions_count { 1 }
+        transactions_traits { [:successful] }
+      end
+
+      after(:create) do |customer, evaluator|
+        create_list(:transaction, 
+          evaluator.transactions_count, 
+          *evaluator.transactions_traits, 
+          invoice: create(:invoice, customer: customer))
+      end
+    end
   end
 end

@@ -25,12 +25,12 @@ RSpec.describe 'Admin Show Dashboard Page', type: :feature do
     end
 
     it 'I see the names of the top 5 customers with the largest number of successful transactions and their transaction count' do
-      customer1 = create(:customer, :with_transactions, transactions_count: 10, transactions_traits: [:successful])
-      customer2 = create(:customer, :with_transactions, transactions_count: 8, transactions_traits: [:successful])
-      customer3 = create(:customer, :with_transactions, transactions_count: 6, transactions_traits: [:successful])
-      customer4 = create(:customer, :with_transactions, transactions_count: 4, transactions_traits: [:successful])
-      customer5 = create(:customer, :with_transactions, transactions_count: 2, transactions_traits: [:successful])
-      customer6 = create(:customer, :with_transactions, transactions_count: 1, transactions_traits: [:successful])
+      customer1 = create(:customer, :with_successful_transactions, transactions_count: 10)
+      customer2 = create(:customer, :with_successful_transactions, transactions_count: 8)
+      customer3 = create(:customer, :with_successful_transactions, transactions_count: 6)
+      customer4 = create(:customer, :with_successful_transactions, transactions_count: 4)
+      customer5 = create(:customer, :with_successful_transactions, transactions_count: 2)
+      customer6 = create(:customer, :with_successful_transactions, transactions_count: 1)
 
       visit admin_dashboard_path
 

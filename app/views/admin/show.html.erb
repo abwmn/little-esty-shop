@@ -3,3 +3,14 @@
   <%= link_to 'Admin Merchants', '/admin/merchants' %>
   <%= link_to 'Admin Invoices', '/admin/invoices' %>
 </div>
+
+<section id="top-customers">
+  <h2>Top Customers by Successful Transactions</h2>
+  <ul>
+    <% @top_customers.each do |customer| %>
+      <li>
+        <%= customer.full_name %> - <%= customer.successful_transaction_count %>
+      </li>
+    <% end %>
+  </ul>
+</section>

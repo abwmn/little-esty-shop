@@ -2,3 +2,12 @@
 <%= @merchant.name %>
 <%= link_to "My Items", "/merchants/#{@merchant.id}/items" %>
 <%= link_to "My Invoices", "/merchants/#{@merchant.id}/invoices" %>
+
+<section id="top-customers">
+  <h2>Top Customers by Successful Transactions</h2>
+  <ul>
+    <% @top_customers.each do |customer| %>
+      <li><%= customer.full_name %>: <%= customer.successful_transactions_count %> successful transactions</li>
+    <% end %>
+  </ul>
+</section>
